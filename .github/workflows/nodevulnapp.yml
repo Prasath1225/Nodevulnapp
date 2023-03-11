@@ -42,5 +42,10 @@ jobs:
         with:
           name: nodevulnappoutput
           path: nodevulnappoutput.json
+          
+          # Runs a single command using the runners shell
+      - name: Running Trufflehog3 tool
+        continue-on-error: true
+        run: trufflehog3 ./ --format json --output report.json
         
  
