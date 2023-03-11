@@ -35,6 +35,12 @@ jobs:
         
          # Runs a single command using the runners shell
       - name: Running njscan SAST tool
-        run: njsscan ./
+        continue-on-error: true
+        run: njsscan ./ -o nodevulnappoutput.json
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nodevulnappoutput
+          path: nodevulnappoutput.json
         
  
