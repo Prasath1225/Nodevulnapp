@@ -29,4 +29,8 @@ jobs:
       - name: Run for rajini
         run: echo superstar*!
         
+        # Runs a single command using the runners shell
+      - name: Installing njscan SAST tool
+        run: pip install njsscan
+        
  
