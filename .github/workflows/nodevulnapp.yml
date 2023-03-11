@@ -43,6 +43,10 @@ jobs:
           name: nodevulnappoutput
           path: nodevulnappoutput.json
           
+           # Runs a single command using the runners shell
+      - name: Installing Trufflehog3 tool
+        run: pip install trufflehog3
+          
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool
         continue-on-error: true
