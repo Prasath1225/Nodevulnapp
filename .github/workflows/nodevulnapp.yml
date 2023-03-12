@@ -49,8 +49,8 @@ jobs:
           
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool and output
-        #continue-on-error: true
-        run: trufflehog3 ./ -f json -o outputlatest.json
+        continue-on-error: true
+        run: trufflehog3 -f json -o output.json
         
   
  
