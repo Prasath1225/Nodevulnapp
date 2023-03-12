@@ -50,6 +50,5 @@ jobs:
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool
         continue-on-error: true
-        run: trufflehog3 ./
-        
+        run: trufflehog3 ./ --output nodesecret.json        
  
