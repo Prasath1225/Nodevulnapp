@@ -48,7 +48,7 @@ jobs:
         run: pip install trufflehog3
           
           # Runs a single command using the runners shell
-      - name: Running Trufflehog3 tool
+      - name: Running Trufflehog3 tool and output
         continue-on-error: true
         run: trufflehog3 ./ -f json -o nodeoutput.json
         
