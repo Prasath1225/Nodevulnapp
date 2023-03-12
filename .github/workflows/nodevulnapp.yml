@@ -52,5 +52,5 @@ jobs:
         continue-on-error: true
         run: trufflehog3 ./ -f json -o nodeoutput.json
         
-  '
+  
  
