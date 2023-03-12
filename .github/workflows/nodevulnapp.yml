@@ -17,12 +17,19 @@ jobs:
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads
         
+         # Runs a single command using the runners shell
+      - name: Installing njscan SAST tool
+        run: pip install njsscan
+        
+         # Runs a single command using the runners shell
+      - name: Running njscan SAST tool
+        continue-on-error: true
+        run: njsscan ./ -o nodevulnappoutput.json
+        
       - name: step 2 - Add artifacts to publish to the temp folder
         run: |
           cd downloads
-          echo 'alpha'    > alpha.html
-          echo 'bravo'    > bravo.html
-          echo 'charlie'  > charlie.html
+          echo 'nodevulnappoutput'    > nodevulnappoutput.json
           cd ..
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
