@@ -26,6 +26,5 @@ jobs:
       
       - name: Running njscan SAST tool
         continue-on-error: true
-        run: | 
-         njsscan ./ -o nodevulnappoutput.json
-         ls
+        run: njsscan ./ -o nodevulnappoutput.json
+      - run: ls
