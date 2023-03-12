@@ -24,14 +24,15 @@ jobs:
         run: pip install njsscan
         
          # Runs a single command using the runners shell
-      - name: Running njscan SAST tool
-        continue-on-error: true
-        run: njsscan ./ -o nodevulnappoutput.json
+      
+      #- name: Running njscan SAST tool
+        #continue-on-error: true
+        #run: njsscan ./ -o nodevulnappoutput.json
         
       - name: step 2 - Add artifacts to publish to the temp folder
         run: |
           cd downloads
-          echo 'nodevulnappoutput'    > nodevulnappoutput.json
+          run: njsscan ./ -o nodevulnappoutput.json
           cd ..
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
