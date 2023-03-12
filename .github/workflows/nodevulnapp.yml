@@ -32,6 +32,18 @@ jobs:
       - name: creating a folder for artifacts
         run: mkdir downloads
         
+         # Runs a single command using the runners shell
+      - name: Running njscan SAST tool
+        continue-on-error: true
+        run: |
+         cd downloads
+         njsscan ./ -o nodevulnappoutput.json
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nodevulnappoutput
+          path: downloads
+        
  
         
   
