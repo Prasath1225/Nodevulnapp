@@ -27,16 +27,31 @@ jobs:
       
       - name: Running njscan SAST tool
         continue-on-error: true
-        run: njsscan ./ -o nodevulnappoutput.json 
+        run: njsscan ./ -o nodevulnappoutput.json
+        
+        # Runs a single command using the runners shell
+      - name: Installing Trufflehog3 tool
+        run: pip install trufflehog3
+          
+          # Runs a single command using the runners shell
+      - name: Running Trufflehog3 tool and output
+        continue-on-error: true
+        run: trufflehog3 ./ -f json -o outputforsecretscan.json
+        
       - uses: canastro/copy-file-action@master
         with:
           source: "nodevulnappoutput.json"
           target: "downloads/nodevulnappoutput.json"
+          
+      - uses: canastro/copy-file-action@master
+         with:
+          source: "outputforsecretscan.json"
+          target: "downloads/outputforsecretscan.json"
    
           
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with: 
-          name: assets-for-download
+          name: Scanresults
           path: downloads
