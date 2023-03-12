@@ -27,7 +27,9 @@ jobs:
       
       - name: Running njscan SAST tool
         continue-on-error: true
-        run: njsscan ./ -o nodevulnappoutput.json
+        run: |
+         njsscan ./ -o nodevulnappoutput.json
+         cp nodevulnappoutput.json /downloads
         
         # Runs a single command using the runners shell
       - name: Installing Trufflehog3 tool
@@ -36,17 +38,19 @@ jobs:
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool and output
         continue-on-error: true
-        run: trufflehog3 ./ -f json -o outputforsecretscan.json
+        run: |
+         trufflehog3 ./ -f json -o outputforsecretscan.json
+         cp outputforsecretscan.json /downloads
         
-      - uses: canastro/copy-file-action@master
-        with:
-          source: "nodevulnappoutput.json"
-          target: "downloads/nodevulnappoutput.json"
+      #- uses: canastro/copy-file-action@master
+        #with:
+          #source: "nodevulnappoutput.json"
+          #target: "downloads/nodevulnappoutput.json"
           
-      - uses: canastro/copy-file-action@master
-        with:
-           source: "outputforsecretscan.json"
-           target: "downloads/outputforsecretscan.json"
+      #- uses: canastro/copy-file-action@master
+        #with:
+           #source: "outputforsecretscan.json"
+           #target: "downloads/outputforsecretscan.json"
    
           
     
