@@ -32,6 +32,10 @@ jobs:
       - name: creating a folder for artifacts
         run: mkdir downloads
         
+        # Runs a single command using the runners shell
+      - name: Installing njscan SAST tool
+        run: pip install njsscan
+        
          # Runs a single command using the runners shell
       - name: Running njscan SAST tool
         continue-on-error: true
