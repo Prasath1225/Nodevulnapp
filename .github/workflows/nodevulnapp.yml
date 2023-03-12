@@ -25,15 +25,15 @@ jobs:
         
          # Runs a single command using the runners shell
       
-      #- name: Running njscan SAST tool
-        #continue-on-error: true
-        #run: njsscan ./ -o nodevulnappoutput.json
+      - name: Running njscan SAST tool
+        continue-on-error: true
+        run: njsscan ./ -o nodevulnappoutput.json | 
+         cd downloads
+         echo 'njsscan' > nodevulnappoutput.json
+         cd ..
         
-      - name: step 2 - Add artifacts to publish to the temp folder
-        run: |
-          cd downloads
-          echo njsscan ./ -o nodevulnappoutput.json
-          cd ..
+   
+          
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
