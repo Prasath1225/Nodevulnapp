@@ -27,10 +27,20 @@ jobs:
       - name: Running njscan SAST tool
         continue-on-error: true
         run: njsscan ./ -o nodevulnappoutput.json
+        
+        # Runs a single command using the runners shell
+      - name: Installing Trufflehog3 tool
+        run: pip install trufflehog3
+          
+          # Runs a single command using the runners shell
+      - name: Running Trufflehog3 tool and output
+        continue-on-error: true
+        run: trufflehog3 ./ -f json -o outputforsecretscan.json
+        
       - run: | 
          sudo cp nodevulnappoutput.json downloads
-         cd downloads
-         ls
+         sudo cp outputforsecretscan.json downloads
+         
          
       - name:  Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v3
