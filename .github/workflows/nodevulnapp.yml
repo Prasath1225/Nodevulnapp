@@ -27,8 +27,11 @@ jobs:
       
       - name: Running njscan SAST tool
         continue-on-error: true
-        run: njsscan ./ -o nodevulnappoutput.json | cp nodevulnappoutput.json /downloads
-        
+        run: njsscan ./ -o nodevulnappoutput.json 
+      - uses: canastro/copy-file-action@master
+        with:
+          source: "nodevulnappoutput.json"
+          target: "downloads/nodevulnappoutput.json"
    
           
     
