@@ -33,6 +33,11 @@ jobs:
       - name: Installing njscan SAST tool
         run: pip install njsscan
         
+      - uses: actions/upload-artifact@v3
+        with:
+          name: creating a folder for artifacts
+          run: mkdir downloads
+        
          # Runs a single command using the runners shell
       - name: Running njscan SAST tool
         continue-on-error: true
@@ -41,7 +46,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: nodevulnappoutput
-          path: ./Results/nodevulnappoutput.json
+          path: ./downloads/nodevulnappoutput.json
           
            # Runs a single command using the runners shell
       - name: Installing Trufflehog3 tool
@@ -52,10 +57,12 @@ jobs:
         continue-on-error: true
         run: trufflehog3 ./ -f json -o outputforsecretscan.json
         
+     
+        
       - uses: actions/upload-artifact@v3
         with:
           name: outputforsecretscan
-          path: ./Results/outputforsecretscan.json
+          path: ./downloads/outputforsecretscan.json
         
   
  
