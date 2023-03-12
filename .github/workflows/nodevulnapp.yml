@@ -50,10 +50,7 @@ jobs:
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool
         continue-on-error: true
-        run: trufflehog3 ./
+        run: trufflehog3 ./ -f json -o output.json
         
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.4.0
-        with:
-         target: 'https://github.com/Prasath1225/Nodevulnapp.git'
+  '
  
