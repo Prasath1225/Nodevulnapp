@@ -29,7 +29,7 @@ jobs:
         continue-on-error: true
         run: |
          njsscan ./ -o nodevulnappoutput.json
-         cp nodevulnappoutput.json /downloads
+         sudo cp nodevulnappoutput.json /downloads
         
         # Runs a single command using the runners shell
       - name: Installing Trufflehog3 tool
@@ -40,7 +40,7 @@ jobs:
         continue-on-error: true
         run: |
          trufflehog3 ./ -f json -o outputforsecretscan.json
-         cp outputforsecretscan.json /downloads
+         sudo cp outputforsecretscan.json /downloads
         
       #- uses: canastro/copy-file-action@master
         #with:
