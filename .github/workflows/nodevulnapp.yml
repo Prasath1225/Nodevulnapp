@@ -50,12 +50,12 @@ jobs:
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool and output
         continue-on-error: true
-        run: trufflehog3 -f json -o output.json
+        run: trufflehog3 ./ -f json -o outputforsecretscan.json
         
       - uses: actions/upload-artifact@v3
         with:
-          name: nodesecretscanoutput
-          path: output.json
+          name: outputforsecretscan
+          path: outputforsecretscan.json
         
   
  
