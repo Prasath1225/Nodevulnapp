@@ -28,6 +28,6 @@ jobs:
         continue-on-error: true
         run: njsscan ./ -o nodevulnappoutput.json
       - run: | 
-         sudo cp nodevulnappoutput.json /downloads
+         sudo cp nodevulnappoutput.json downloads
          cd downloads
          ls
