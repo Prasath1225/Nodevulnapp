@@ -44,9 +44,9 @@ jobs:
           target: "downloads/nodevulnappoutput.json"
           
       - uses: canastro/copy-file-action@master
-         with:
-          source: "outputforsecretscan.json"
-          target: "downloads/outputforsecretscan.json"
+        with:
+           source: "outputforsecretscan.json"
+           target: "downloads/outputforsecretscan.json"
    
           
     
