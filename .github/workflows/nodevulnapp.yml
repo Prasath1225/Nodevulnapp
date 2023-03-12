@@ -41,7 +41,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: nodevulnappoutput
-          path: nodevulnappoutput.json
+          path: ./Results/nodevulnappoutput.json
           
            # Runs a single command using the runners shell
       - name: Installing Trufflehog3 tool
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: outputforsecretscan
-          path: outputforsecretscan.json
+          path: ./Results/outputforsecretscan.json
         
   
  
