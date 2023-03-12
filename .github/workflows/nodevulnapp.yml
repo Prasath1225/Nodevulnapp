@@ -16,47 +16,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Step 1 - Create a temporary artifact downloads folder
-        run: mkdir downloads
-        
-         # Runs a single command using the runners shell
-      - name: Installing njscan SAST tool
-        run: pip install njsscan
-        
-         # Runs a single command using the runners shell
-      
-      - name: Running njscan SAST tool
-        continue-on-error: true
-        run: |
-         njsscan ./ -o nodevulnappoutput.json
-         echo 'newline'
-        
-        # Runs a single command using the runners shell
-      - name: Installing Trufflehog3 tool
-        run: pip install trufflehog3
-          
-          # Runs a single command using the runners shell
-      - name: Running Trufflehog3 tool and output
-        continue-on-error: true
-        run: |
-         trufflehog3 ./ -f json -o outputforsecretscan.json
-         echo 'newline'
-         
-        
-      #- uses: canastro/copy-file-action@master
-        #with:
-          #source: "nodevulnappoutput.json"
-          #target: "downloads/nodevulnappoutput.json"
-          
-      #- uses: canastro/copy-file-action@master
-        #with:
-           #source: "outputforsecretscan.json"
-           #target: "downloads/outputforsecretscan.json"
-   
-          
-    
-      - name: Step 3 - Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v3
-        with: 
-          name: Scanresults
-          path: downloads
+      - run: |
+         echo "A initial message"
+         python --verion
+      - run: echo "One last message"
