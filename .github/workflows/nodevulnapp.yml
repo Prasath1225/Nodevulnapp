@@ -50,5 +50,9 @@ jobs:
           # Runs a single command using the runners shell
       - name: Running Trufflehog3 tool
         continue-on-error: true
-        run: trufflehog3 ./ -f json -o nodesecret.json
+        run: trufflehog3 ./
+        
+         # Runs a single command using the runners shell
+      - name: Checking ZAP
+        run: zap --version
  
