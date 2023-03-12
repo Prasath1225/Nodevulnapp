@@ -53,6 +53,6 @@ jobs:
         run: trufflehog3 ./
         
          # Runs a single command using the runners shell
-      - name: Checking ZAP
-        run: owasp-zap -h
+      - name: Installig ZAPproxy for DAST
+        run: sudo apt install zaproxy
  
