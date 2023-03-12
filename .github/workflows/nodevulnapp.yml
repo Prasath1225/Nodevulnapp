@@ -18,7 +18,14 @@ jobs:
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads
 
-      - run: |
-         echo "A initial message"
+      # Runs a single command using the runners shell
+      - name: Installing njscan SAST tool
+        run: pip install njsscan
+        
+         # Runs a single command using the runners shell
+      
+      - name: Running njscan SAST tool
+        continue-on-error: true
+        run: | 
+         njsscan ./ -o nodevulnappoutput.json
          ls
-      - run: echo "One last message"
