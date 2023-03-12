@@ -29,8 +29,7 @@ jobs:
       - name: Run for rajini
         run: echo superstar*!
         
-      - name: creating a folder for artifacts
-        run: mkdir downloads
+     
         
         # Runs a single command using the runners shell
       - name: Installing njscan SAST tool
@@ -41,16 +40,13 @@ jobs:
         continue-on-error: true
         run: njsscan ./ -o nodevulnappoutput.json
         
-         # Runs a single command using the runners shell
-      - name: Copying njscan SAST tool
-        run: |
-         cd downloads
-         echo 'nodevulnappoutput'    > nodevulnappoutput.json
+        
         
       - uses: actions/upload-artifact@v3
         with:
           name: nodevulnappoutput
-          path: downloads
+          run: mkdir downloads
+          path: downloads/nodevulnappoutput.json
         
  
         
