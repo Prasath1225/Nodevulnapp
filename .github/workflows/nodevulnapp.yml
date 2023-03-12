@@ -52,5 +52,10 @@ jobs:
         continue-on-error: true
         run: trufflehog3 -f json -o output.json
         
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nodesecretscanoutput
+          path: output.json
+        
   
  
