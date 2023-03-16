@@ -72,6 +72,10 @@ jobs:
          - name: Compliance Scan
          run: echo "Compliance Scan"
          
+         #Stage 9
+         - name: Production Deployment
+         run: echo "Production Deployment"
+         
         
       - run: | 
          sudo cp nodevulnappoutput.json downloads
